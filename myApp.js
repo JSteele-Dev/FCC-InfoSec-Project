@@ -10,6 +10,11 @@ app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
 
+const timeInSeconds = 90*24*60*60;
+app.use(helmet.strictTransportSecurity(
+  {maxAge: timeInSeconds, force: true}
+));
+
 
 
 
